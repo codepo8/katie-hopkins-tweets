@@ -56,12 +56,22 @@
    .more {
      text-align: center;
    }
+   .share {
+     text-align: right;
+   }
+   .share a {
+     color: #fff;
+     background: royalblue;
+     text-decoration: none;
+     padding: 5px 10px;
+   }
   </style>
 </head>
 <body>
   <h1>Katie Hopkins Tweet generator</h1>
   <p>By <a href="https://twitter.com/davidschneider">David Schneider</a> and <a href="https://twitter.com/Jason_Spacey">Jason Spacey</a> - code by <a href="http://twitter.com/codepo8">Chris Heilmann</a></p>
   <blockquote><p id="waffle"></p></blockquote>
+  <p class="share"><a id="share" href="#">Tweet this</a></p>
   <p class="more"><button>Click the cow to get another one</button></p>
 <script>
 (function() {
@@ -113,6 +123,7 @@ function gettweet(){
          quotes.middle[getrand(quotelengths[1])] +
          quotes.end[getrand(quotelengths[2])];
   document.querySelector('#waffle').innerHTML = out;
+  document.querySelector('#share').href = "https://twitter.com/intent/tweet?text="+encodeURIComponent("#katiehopkinstweets "+out)+"&via=codepo8&url=http://codepo8.github.io/katie-hopkins-tweets/";
 }
 
 function getrand(max) {
