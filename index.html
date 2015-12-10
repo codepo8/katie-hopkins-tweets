@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+	<title>Very simple cam</title>
+	<style type="text/css">
+		html {
+			background: #f8f8f8;
+		}
+   body {
+     font-family: Arial, Helvetica, sans-serif;
+      max-width: 700px;
+      margin: 0 auto;
+   }
+   a {color: #333;}
+   button {
+     font-family: Arial, Helvetica, sans-serif;
+     border: none;
+     position: relative;
+     line-height: 100px;
+     font-size: 30px;
+     padding-right: 70px;
+     position: relative;
+     background: url(cow.png) no-repeat right center #f8f8f8;
+     background-size: 50px;
+   }
+   blockquote {
+     position: relative;
+   }
+   blockquote p {
+     font-size: 50px;
+     color: darkslategrey;
+     font-style: italic;
+     font-family: Georgia, 'Times New Roman', Times, serif;
+   }
+   blockquote::before {
+    content: '"';
+    font-size: 150px;
+     font-style: italic;
+     font-family: Georgia, 'Times New Roman', Times, serif;
+    position: absolute;
+    top: -15px;
+    color: darkslategray;
+    left: -80px;
+   }
+   h1 {
+     color: mediumseagreen;
+     font-weight: lighter;
+     font-size: 40px;
+   }
+   p {
+     color: #666;
+     font-size: 16px;
+   }
+   .more {
+     text-align: center;
+   }
+  </style>
+</head>
+<body>
+  <h1>Katie Hopkins Tweet generator</h1>
+  <p>By <a href="https://twitter.com/davidschneider">David Schneider</a> and <a href="https://twitter.com/Jason_Spacey">Jason Spacey</a> - code by <a href="http://twitter.com/codepo8">Chris Heilmann</a></p>
+  <blockquote><p id="waffle"></p></blockquote>
+  <p class="more"><button>Click the cow to get another one</button></p>
+<script>
+(function() {
+
+var quotes = {
+	start: [
+		'Overweight people are ',
+		'Migrants are ',
+		'Feminists are ',
+		'Ramadan is ',
+		'The PC brigade are ',
+		'The disabled are ',
+		'People with learning difficulties are ',
+		'Benefit claimants are ',
+		'The Scottish are '
+	],
+	middle: [
+		'solely responsible for ',
+		'the main cause of ',
+		'no better than ',
+		'spending taxpayer\'s money on ',
+		'living on a diet of deep-fried food and ',
+		'covering war memorials in ',
+		'a symptom of ',
+		'breeding with ',
+		'stockpiling ',
+		'filling this country with '
+	],
+	end: [
+		'the Ebola virus.',
+		'tattoos.',
+		'people with learning difficulties.',
+		'ginger-haired babies.',
+		'Kim Kardashian\'s arse.',
+		'dementia patients.',
+		'other people\'s children.',
+		'skinny people looking sad.',
+		'mobility scooters.',
+		'Muslims.'
+	]
+}
+var quotelengths = [
+  quotes.start.length - 1,
+  quotes.middle.length - 1,
+  quotes.end.length -1
+];
+function gettweet(){
+  var out = quotes.start[getrand(quotelengths[0])] +
+         quotes.middle[getrand(quotelengths[1])] +
+         quotes.end[getrand(quotelengths[2])];
+  document.querySelector('#waffle').innerHTML = out;
+}
+
+function getrand(max) {
+  var out = Math.round(Math.random() * max);
+  return out;
+}
+document.querySelector('button').addEventListener('click', gettweet);
+gettweet();
+
+})();
+</script>
+</body>
+</html>
