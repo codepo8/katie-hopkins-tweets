@@ -123,7 +123,11 @@ function gettweet(){
          quotes.middle[getrand(quotelengths[1])] +
          quotes.end[getrand(quotelengths[2])];
   document.querySelector('#waffle').innerHTML = out;
-  document.querySelector('#share').href = "https://twitter.com/intent/tweet?text="+encodeURIComponent("#katiehopkinstweets "+out)+"&via=codepo8&url=http://codepo8.github.io/katie-hopkins-tweets/";
+  document.querySelector('#share').href = "" +
+    "https://twitter.com/intent/tweet?text=" +
+    encodeURIComponent("#katiehopkinstweets "+out) +
+    "&via=codepo8&url="+
+    "http://codepo8.github.io/katie-hopkins-tweets/";
 }
 
 function getrand(max) {
